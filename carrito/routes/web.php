@@ -39,6 +39,6 @@ Route::get("/productos", [productoController::class, "mostrarProductos"]);
 Route::get("/productos/create", [productoController::class, "motrarFormularioNuevoProducto"]);
 Route::post("/productos", [productoController::class, "cargarProductos"]);
 Route::get("/nuevoProducto", [productoController::class, "mostrarFormularioCargar"]);
-//Route::delete("/productos/{$id}", [productoController::class, "delete"]);
+Route::delete("/productos/{id}", [productoController::class, "delete"]);
 Route::get("/productos/{id}/edit", [productoController::class, "mostrarFormularioEditar"]);
 Route::patch("/productos/{id}", [productoController::class, "updateProducto"]);

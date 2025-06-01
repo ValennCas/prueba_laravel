@@ -17,12 +17,12 @@
                 <th>{{ $producto->nombre }}</th>
                 <th>{{ $producto->precio }}</th>
                 <th>
-                    <a href="/productos/{$producto->id}/edit">Editar</a>
+                    <a href="/productos/{{$producto->id}}/edit">Editar</a>
                 </th>
                 <th>
-                    <form action="/productos/{$producto->id}" method="post">
+                    <form action="/productos/{{$producto->id}}" method="post">
                         @csrf
-                        {{ method_field('DELETE') }}
+                        @method('DELETE')
                         <input type="submit" value="Borrar">
                     </form>
                 </th>

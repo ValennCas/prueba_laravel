@@ -35,7 +35,8 @@ class productoController extends Controller
         $producto = new producto();
         $producto->nombre = $request->input("nombre");
         $producto->precio = $request->input("precio");
-        producto::insertar($producto);
+        $producto->save();
+        return $this->mostrarProductos();
     }
 
     public function mostrarFormularioCargar()
@@ -46,7 +47,7 @@ class productoController extends Controller
     public function delete($id)
     {
         producto::destroy($id);
-        return redirect('productos.producto');
+        return redirect('productos');
     }
 
     public function mostrarFormularioEditar($id)
@@ -56,20 +57,12 @@ class productoController extends Controller
         return view("productos.editarDatos", compact('producto'));
     }
 
-    public function updateProducto(Request $request, $id)
-    {
-        $campos = [
-            'nombre' => 'required|string',
-            'precio' => 'required|integer'
-        ];
-
-        $mensaje = [
-            'required' => 'El :attribute es requerido'
-        ];
-        $this->validate($request, $campos, $mensaje);
-
-        $producto = request()->except('_token', '_method');
-        producto::actualizar($producto, $id);
-        return $this->mostrarFormularioEditar($id);
+    public function updateProducto($id, Request $request){
+       $producto = producto::findOrFail($id);
+        $producto->nombre = $request->input('nombre');
+        $producto->precio = $request->input('precio');
+        $producto->save();
+        return redirect('productos');
     }
+
 }
