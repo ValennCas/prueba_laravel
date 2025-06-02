@@ -1,13 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productoController;
 use App\Http\Controllers\inicioController;
 use App\Http\Controllers\sumaController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Http\Request;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -20,19 +18,16 @@ use Illuminate\Support\Http\Request;
 |
 */
 
-/*Version vieja sin MVC (mal, solo practica)
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/inicio', function () {
-    return view('inicio');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get("/suma", function () {
-    return view("suma");
-});
-*/
+require __DIR__.'/auth.php';
+
 Route::get("/", [inicioController::class, "inicio"]);
 Route::get("/suma", [sumaController::class, "sumaVista"]);
 Route::post("/suma", [sumaController::class, "suma"]);
@@ -46,5 +41,4 @@ Route::get("/productos/{id}/edit", [productoController::class, "mostrarFormulari
 Route::patch("/productos/{id}", [productoController::class, "updateProducto"]);
 
 
-Route::get("/login", [LoginController::class, "loginForm"]);
-Route::post("/login", [LoginController::class, "login"]);
+
