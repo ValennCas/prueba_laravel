@@ -1,4 +1,11 @@
 # COMANDOS 
+## INSTALAR TODO
+composer global require "laravel/installer" - Para laravel
+composer install - Para Composer
+composer require laravel/breeze:1.9.2 - Para Breeze (autenticacion)
+php artisan breeze:install - Para 
+
+
 ## ARTISAN
 php artisan make:model nombreModelo -Este comando crea una nueva clase de modelo Eloquent en app/Models
 
