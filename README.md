@@ -27,3 +27,7 @@ Para ejecutar
 
 ## LARAVEL JETSTREAM
 Jetstream ofrece un andamiaje de aplicaciones con un atractivo diseño para Laravel que incluye inicio de sesión, registro, verificación de correo electrónico, autenticación de dos factores, gestión de sesiones, compatibilidad con API a través de Laravel Sanctum y gestión de equipos opcional. 
+
+
+### Video autenticacion 
+https://www.youtube.com/watch?v=3hRkE64YIqg
