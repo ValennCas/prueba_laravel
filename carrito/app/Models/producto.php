@@ -15,8 +15,5 @@ class producto extends Model
         $producto->save();
     }
 
-    public static function actualizar($producto, $id)
-    {
-        producto::where('id', '=', $id)->update($producto);
-    }
+
 }
